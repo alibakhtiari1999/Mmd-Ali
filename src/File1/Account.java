@@ -41,8 +41,14 @@ public class Account {
         if (this.userName.compareTo(account.userName)<0)return true;
         return false;
     }
-
     public String getUserName() {
         return userName;
+    }
+    public boolean checkPassword(int password){
+        if (this.password.equals(password))return true;
+        return false;
+    }
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

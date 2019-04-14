@@ -1,71 +1,37 @@
 package File1;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Account {
-    private String state;
-    private static Scanner scanner=new Scanner(System.in);
-    private static Pattern pattern;
-    private static Matcher matcher;
-    private static String createAccount ="^create account ([^ ]+)$";
-    private static String login ="^login ([^ ]+)$";
-    //private static String createAccount ="^create account ([^ ]+)$";
+    private String userName;
+    private int money;
+    private ArrayList<MatchResult> matchHistory;
+    private CollectionCard collectionCard;
+    private ArrayList<Deck> decks;
 
-
-
-
-    public void setState(String state) {
-        this.state = state;
+    public Account(String userName) {
+        this.userName = new String(userName);
+        this.money = 0;
+        this.matchHistory = new ArrayList<MatchResult>();
+        this.collectionCard = new CollectionCard();
+        this.decks = new ArrayList<Deck>();
     }
-    public static String AccountMenu(){
-        while (true){
-            String commandTxt=scanner.nextLine();
-            //create account
-            pattern = Pattern.compile(createAccount);
-            matcher = pattern.matcher(commandTxt);
-            if (matcher.find()){
-                createAccount(matcher.group(1));
-                continue;
-            }
-            //login
-            pattern = Pattern.compile(login);
-            matcher = pattern.matcher(commandTxt);
-            if (matcher.find()){
-                String userName=matcher.group(1);
-                if (!checkUserValidity(userName)){
-                    System.out.println("Invalid userName...");
-                    continue;
-                }
-                login(userName);
-            }
-
-            pattern = Pattern.compile(createAccount);
-            matcher = pattern.matcher(commandTxt);
-            if (matcher.find()){
-                createAccount(matcher.group(1));
-
-            }
-            System.out.println("Invalid command!");
-
+    public int getMoney(int value){
+        money+=value;
+        return money;
+    }
+    public void addMatchResult(MatchResult matchResult){
+        this.matchHistory.add(matchResult);
+    }
+    public int NumOfWin(){
+        int count=0;
+        for (MatchResult matchResult:this.matchHistory){
+            if (matchResult.isWin())count++;
         }
-
-
-    }
-    private static void createAccount (String userName){
-
-    }
-
-    private static boolean login (String userName){
-    //check password
-
-        return true;
-    }
-
-    private static boolean checkUserValidity(String username){
-
-        return true;
+        return count;
     }
 
 }

@@ -31,6 +31,10 @@ public class AccountMenu {
             pattern = Pattern.compile(createAccountSTR);
             matcher = pattern.matcher(commandTxt);
             if (matcher.find()){
+                if (findAccount(commandTxt)==null){
+                    System.out.println("Taken userName...,make another one.");
+                    continue;
+                }
                 if (creatAccount(matcher.group(1))){
                     System.out.println("Your account was created successfully.");
                 }

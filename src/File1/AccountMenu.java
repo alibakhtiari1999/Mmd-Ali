@@ -17,21 +17,23 @@ public class AccountMenu {
     private static String createAccountSTR ="^create account ([^ ]+)$";
     private static String loginSTR ="^login ([^ ]+)$";
     private static String passwordSTR="^[0-9]+$";
-    private static String showLeaderboardSTR ="show leaderBoard";
+    private static String showLeaderboardSTR ="show leaderboard";
     private static String logoutSTR ="logout";
     private static String helpSTR ="help";
+    private static String saveSTR ="save";
 
     public AccountMenu() {
         this.accounts = new ArrayList<Account>();
     }
-    public static String AccountMainMenu(){
+    public static String accountMainMenu(){
+        help();
         while (true){
             String commandTxt=scanner.nextLine();
             //create account
             pattern = Pattern.compile(createAccountSTR);
             matcher = pattern.matcher(commandTxt);
             if (matcher.find()){
-                if (findAccount(commandTxt)==null){
+                if (findAccount(matcher.group(1))!=null){
                     System.out.println("Taken userName...,make another one.");
                     continue;
                 }
@@ -52,16 +54,17 @@ public class AccountMenu {
                 }
                 if (login(account)){
                     System.out.println("You logged in successfully.");
-                    continue;
                 }
+                continue;
             }
             //show leaderboard
             if (commandTxt.equals(showLeaderboardSTR)){
                 showLeaderBoard();
+                continue;
             }
             //help
             if (commandTxt.equals(helpSTR)){
-                //show validity commands...
+                help();
                 continue;
             }
             //logout
@@ -70,11 +73,25 @@ public class AccountMenu {
                 System.out.println("You logged out successfully.");
                 continue;
             }
-            System.out.println("Invalid command!");
             //quit
             if (commandTxt.equals("quit")){
                 return "quit";
             }
+            //save
+            if (commandTxt.equals(saveSTR)){
+                save();
+                continue;
+            }
+            //show logged in account
+            if (commandTxt.equals("show logged in account")){
+                if (loginAccount==null){
+                    System.out.println("No account was logged in yet!");
+                    continue;
+                }
+                System.out.println(loginAccount.getUserName());
+                continue;
+            }
+            System.out.println("Invalid command!");
         }
     }
     private static boolean login (Account account){
@@ -84,8 +101,7 @@ public class AccountMenu {
             pattern = Pattern.compile(passwordSTR);
             matcher = pattern.matcher(commadnTxt);
             if (matcher.find()){
-                int password=Integer.valueOf(commadnTxt);
-                if (account.checkPassword(password)){
+                if (account.checkPassword(commadnTxt)){
                     loginAccount = account;
                     return true;
                 }
@@ -99,6 +115,10 @@ public class AccountMenu {
         }
     }
     private static void showLeaderBoard(){
+        if (accounts.size()==0){
+            System.out.println("There's no any user yet.");
+            return;
+        }
         sortAccounts();
         for (int i=0;i<accounts.size();i++){
             System.out.println(i+1+"-UserName:"+accounts.get(i).getUserName()+
@@ -130,12 +150,27 @@ public class AccountMenu {
                 Account account=new Account(userName);
                     account.setPassword(commadnTxt);
                     accounts.add(account);
-                continue;
+                return true;
             }
             if (commadnTxt.equals("back")){
                 return false;
             }
             System.out.println("Invalid password...(password is only digits:0-9)");
         }
+    }
+    public static void help(){
+        System.out.println("Account menu:");
+        System.out.println("create account [user name]");
+        System.out.println("login [user name]");
+        System.out.println("show leaderboard");
+        System.out.println("save");
+        System.out.println("logout");
+        System.out.println("help");
+        System.out.println("show logged in account");
+        System.out.println("quit");
+    }
+    public static boolean save(){
+        System.out.println("Successfully saved.");
+        return true;
     }
 }

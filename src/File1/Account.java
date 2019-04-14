@@ -44,7 +44,7 @@ public class Account {
     public String getUserName() {
         return userName;
     }
-    public boolean checkPassword(int password){
+    public boolean checkPassword(String password){
         if (this.password.equals(password))return true;
         return false;
     }

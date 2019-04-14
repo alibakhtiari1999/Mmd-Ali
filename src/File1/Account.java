@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 public class Account {
     private String userName;
     private int money;
+    private String password;
     private ArrayList<MatchResult> matchHistory;
     private CollectionCard collectionCard;
     private ArrayList<Deck> decks;
@@ -18,6 +19,7 @@ public class Account {
         this.matchHistory = new ArrayList<MatchResult>();
         this.collectionCard = new CollectionCard();
         this.decks = new ArrayList<Deck>();
+        this.password=new String();
     }
     public int getMoney(int value){
         money+=value;
@@ -26,12 +28,21 @@ public class Account {
     public void addMatchResult(MatchResult matchResult){
         this.matchHistory.add(matchResult);
     }
-    public int NumOfWin(){
+    public int numOfWin(){
         int count=0;
         for (MatchResult matchResult:this.matchHistory){
             if (matchResult.isWin())count++;
         }
         return count;
     }
+    public boolean compare(Account account){
+        if (this.numOfWin()>account.numOfWin())return true;
+        if (this.numOfWin()<account.numOfWin())return false;
+        if (this.userName.compareTo(account.userName)<0)return true;
+        return false;
+    }
 
+    public String getUserName() {
+        return userName;
+    }
 }

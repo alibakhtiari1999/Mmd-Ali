@@ -1,12 +1,20 @@
 package File1;
 
+import java.util.ArrayList;
+
 public class Location {
     private static int numberOfLocations = 0;
     private boolean isFull = false;
     private Location loc;
     private Card cardOnLocation;
-    private Spell spell;
+    private ArrayList<Spell> spells;
 
+    public ArrayList<Spell> getSpells() {
+        return spells;
+    }
+    public void setSpell(Spell spell) {
+        this.spells.add(spell);
+    }
     public Card getCardOnLocation() {
         return cardOnLocation;
     }

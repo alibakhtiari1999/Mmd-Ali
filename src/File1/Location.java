@@ -23,6 +23,7 @@ public class Location {
             this.cardOnLocation = cardOnLocation;
             System.out.println("card sucsessfully put in cell");
         }
+
         System.out.println("there is already a card in this cell, try another cell. ");
     }
     private Location() {

@@ -6,3 +6,4 @@ public static MainMenu mainMenu=new MainMenu();
         mainMenu.openMenu();
     }
 }
+

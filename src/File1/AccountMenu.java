@@ -173,6 +173,12 @@ public class AccountMenu {
     public static boolean save(){
         System.out.println("Successfully saved.");
         return true;
+        /*
+        BufferedReader br = Files.newBufferedReader(Paths.get("filename.txt"))
+        String line;
+        line = br.readLine();
+        sb.append(line).append("\n");
+         */
     }
     public static boolean load(){
         return true;

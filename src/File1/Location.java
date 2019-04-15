@@ -22,6 +22,7 @@ public class Location {
         if (cardOnLocation==null){
             this.cardOnLocation = cardOnLocation;
             System.out.println("card successfully put in cell");
+            isFull=true;
         }else {
             System.out.println("there is already a card in this cell, try another cell.");
         }

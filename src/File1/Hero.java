@@ -2,8 +2,9 @@ package File1;
 
 public class Hero extends Minion {
     public Card specialPower;
-    public Hero(int id,int MP, int Ap, int Hp, CardType cardType,Card specialPower) {
-        super(id,MP, Ap, Hp, cardType,specialPower);
+    public Hero(int id,int MP, int Ap, int Hp,Card specialPower) {
+        super(id,MP, Ap, Hp,specialPower);
+        setCardType();
     }
     @Override
     public void setCardType() {

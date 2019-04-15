@@ -6,10 +6,9 @@ public class Card {
     int Mp;
     String desc;
     public CardType cardType;
-    public Card(int id, int Mp, CardType cardType) {
+    public Card(int id, int Mp) {
         this.Mp = Mp;
         this.id = id;
-        this.cardType = cardType;
         name=new String();
     }
     public void setDesc(String desc) {

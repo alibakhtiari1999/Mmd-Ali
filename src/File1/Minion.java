@@ -11,14 +11,16 @@ public class Minion extends Card {
     public int Hp;
     public int x;
     public int y;
-    public Minion(int id,int Mp,int Ap,int Hp,CardType cardType,Card specialPower) {
-        super(id,Mp,cardType);
+    public ItemType itemType;
+    public Minion(int id,int Mp,int Ap,int Hp,Card specialPower) {
+        super(id,Mp);
         maxMove=2;
         originAp=Ap;
         originHp=Hp;
         specialPower=specialPower;
         setCardType();
         targets=new Targets();
+        setCardType();
     }
     @Override
     public void setCardType() {
@@ -43,5 +45,9 @@ public class Minion extends Card {
     public void show() {
         System.out.println(cardType+","+specialPower.name+","+name+","+",class,"+originAp
         +","+originHp+","+ Mp);
+    }
+
+    public void setItemType(ItemType itemType) {
+        this.itemType = itemType;
     }
 }

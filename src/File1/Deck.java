@@ -9,5 +9,4 @@ public class Deck {
         this.name = name;
         cards=new ArrayList<Card>();
     }
-
 }

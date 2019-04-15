@@ -21,10 +21,10 @@ public class Location {
     public void setCardOnLocation(Card cardOnLocation) {
         if (cardOnLocation==null){
             this.cardOnLocation = cardOnLocation;
-            System.out.println("card sucsessfully put in cell");
+            System.out.println("card successfully put in cell");
+        }else {
+            System.out.println("there is already a card in this cell, try another cell.");
         }
-
-        System.out.println("there is already a card in this cell, try another cell. ");
     }
     private Location() {
         if (numberOfLocations < 45){

@@ -24,8 +24,9 @@ public class AccountMenu {
 
     public AccountMenu() {
         this.accounts = new ArrayList<Account>();
+        load();
     }
-    public static String accountMainMenu(){
+    public static void openMenu(){
         help();
         while (true){
             String commandTxt=scanner.nextLine();
@@ -74,8 +75,8 @@ public class AccountMenu {
                 continue;
             }
             //quit
-            if (commandTxt.equals("quit")){
-                return "quit";
+            if (commandTxt.equals("exit")){
+                return;
             }
             //save
             if (commandTxt.equals(saveSTR)){
@@ -167,10 +168,13 @@ public class AccountMenu {
         System.out.println("logout");
         System.out.println("help");
         System.out.println("show logged in account");
-        System.out.println("quit");
+        System.out.println("exit");
     }
     public static boolean save(){
         System.out.println("Successfully saved.");
+        return true;
+    }
+    public static boolean load(){
         return true;
     }
 }

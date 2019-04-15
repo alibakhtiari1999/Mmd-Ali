@@ -1,9 +1,8 @@
 package File1;
 
 public class Main {
-public static AccountMenu accountMenu=new AccountMenu();
-
+public static MainMenu mainMenu=new MainMenu();
     public static void main(String[] args) {
-        accountMenu.accountMainMenu();
+        mainMenu.openMenu();
     }
 }

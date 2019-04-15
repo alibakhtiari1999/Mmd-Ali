@@ -160,15 +160,15 @@ public class AccountMenu {
         }
     }
     public static void help(){
-        System.out.println("Account menu:");
-        System.out.println("create account [user name]");
-        System.out.println("login [user name]");
-        System.out.println("show leaderboard");
-        System.out.println("save");
-        System.out.println("logout");
-        System.out.println("help");
-        System.out.println("show logged in account");
-        System.out.println("exit");
+        System.out.println("1.Account menu:");
+        System.out.println("2.create account [user name]");
+        System.out.println("3.login [user name]");
+        System.out.println("4.show leaderboard");
+        System.out.println("5.save");
+        System.out.println("6.logout");
+        System.out.println("7.help");
+        System.out.println("8.show logged in account");
+        System.out.println("9.exit");
     }
     public static boolean save(){
         System.out.println("Successfully saved.");

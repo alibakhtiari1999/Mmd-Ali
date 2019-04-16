@@ -8,6 +8,8 @@ public class Location {
     private Location loc;
     private Card cardOnLocation;
     private ArrayList<Spell> spells;
+    private final Cell cell;
+
 
     public ArrayList<Spell> getSpells() {
         return spells;
@@ -27,12 +29,14 @@ public class Location {
             System.out.println("there is already a card in this cell, try another cell.");
         }
     }
-    private Location() {
+    private Location(Cell cell) {
+        this.cell = cell;
+    }
+    public Location getInstance() {
         if (numberOfLocations < 45){
             loc = new Location();
+            numberOfLocations+++;
         }
-    }
-    public Location getInstance(){
         return loc;
     }
     public boolean isFull() {

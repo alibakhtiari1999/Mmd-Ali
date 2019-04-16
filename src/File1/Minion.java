@@ -6,7 +6,7 @@ public class Minion extends Card {
     public final int originHp;
     public final int maxMove;
     public Card specialPower;
-    public Targets targets;
+    public Target Target;
     public int Ap;
     public int Hp;
     public int x;
@@ -19,7 +19,7 @@ public class Minion extends Card {
         originHp=Hp;
         specialPower=specialPower;
         setCardType();
-        targets=new Targets();
+        Target=new Target();
         setCardType();
     }
     @Override

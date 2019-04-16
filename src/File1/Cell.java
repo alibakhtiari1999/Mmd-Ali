@@ -2,7 +2,7 @@ package File1;
 
 import java.util.ArrayList;
 
-public class Cell {
+public class    Cell {
 
 
 

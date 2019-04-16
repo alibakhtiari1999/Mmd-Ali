@@ -10,7 +10,6 @@ public ArrayList<Item> items;
         cards=new ArrayList<Card>();
         items=new ArrayList<Item>();
     }
-
     public static void openMenu(){
         System.out.println("Shop Menu called.");
     }

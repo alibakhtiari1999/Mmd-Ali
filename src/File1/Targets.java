@@ -2,10 +2,10 @@ package File1;
 
 import java.util.ArrayList;
 
-public class Targets {
+public class Target {
     public ArrayList<Cell> cells;
 
-    public Targets() {
+    public Target() {
         cells=new  ArrayList<Cell>();
     }
     public void addCell(int x,int y){

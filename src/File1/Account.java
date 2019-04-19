@@ -2,13 +2,15 @@ package File1;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Account {
     private String userName;
-    private int money;
     private String password;
+    private String uniqueID = UUID.randomUUID().toString();
+    private int money;
     private ArrayList<MatchResult> matchHistory;
     private CollectionCard collectionCard;
     private ArrayList<Deck> decks;

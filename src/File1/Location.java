@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Location {
     private static int numberOfLocations = 0;
     private boolean isFull = false;
-    private Location loc;
     private Card cardOnLocation;
     private ArrayList<Spell> spells;
     private final Cell cell;
@@ -32,12 +31,18 @@ public class Location {
     private Location(Cell cell) {
         this.cell = cell;
     }
-    public Location getInstance() {
-        if (numberOfLocations < 45){
-            loc = new Location();
-            numberOfLocations+++;
+    public Location getInstance(Cell cell) {
+        if (numberOfLocations < 45)
+        {
+            numberOfLocations++;
+            return new Location(cell);
         }
-        return loc;
+
+        else
+        {
+            return null;
+        }
+
     }
     public boolean isFull() {
         return isFull;

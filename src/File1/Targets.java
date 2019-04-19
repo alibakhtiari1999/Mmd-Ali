@@ -12,4 +12,5 @@ public class Target {
         Cell cell=new Cell(x,y);
         cells.add(cell);
     }
+    
 }
